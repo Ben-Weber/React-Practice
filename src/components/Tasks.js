@@ -1,9 +1,20 @@
-const Tasks = ({ tasks }) => {
+import Task from "./Task";
+
+const Tasks = ({ tasks, onDelete, onToggle }) => {
   return (
     <>
-      {tasks.map((task) => (
-        <h3 key={task.id}> {task.text} </h3>
-      ))}
+      {tasks.map(
+        (
+          task // looping through tasks
+        ) => (
+          <Task
+            key={task.id}
+            task={task}
+            onDelete={onDelete}
+            onToggle={onToggle}
+          /> // passing in each task as a prop
+        )
+      )}
     </>
   );
 };
